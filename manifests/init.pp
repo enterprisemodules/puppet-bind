@@ -63,7 +63,7 @@ class bind(
     command     => $bind::params::service_restart,
     onlyif      => "named-checkconf -jz ${bind::params::config_base_dir}/${bind::params::named_conf_name}",
     refreshonly => true,
-    path        => $::path,
+    path        => $facts['path'],
     require     => Class['bind::service'],
   }
 }
